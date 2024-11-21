@@ -1,23 +1,18 @@
 .button {
 	border-radius: 6px;
-	border: none;
 	padding: 8px 30px;
-	font-size: 16px;
-	font-weight: 400;
+	font-family: inherit;
 	cursor: pointer;
-	transition: border-color 0.25s;
-}
-
-.button:hover {
-	background-color: #22208f;
+	transition: background-color 0.25s;
+	font-size: 16px;
+	border: none;
+	color: var(--white-color);
 }
 
 .buttonAccent {
-	background-color: #312eb5;
+	background-color: var(--primary-color);
 }
 
-.buttonSubmit {
-	padding: 8px 20px;
-	line-height: 26px;
-	align-self: flex-start;
+.buttonAccent:hover {
+	background-color: var(--primary-hover-color);
 }

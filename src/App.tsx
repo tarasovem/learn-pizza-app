@@ -1,11 +1,10 @@
-import './App.css'
-import Button from './components/Button/Button'
+import Button from './components/Button/Button';
 function App() {
-  return (
+	return (
 		<>
 			<Button onClick={() => console.log('click')}>Кнопка</Button>
 		</>
 	);
 }
 
-export default App
+export default App;
