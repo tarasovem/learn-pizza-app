@@ -1,6 +1,8 @@
+import Heading from '../../components/Heading/Heading';
+
 function Cart() {
 	return (
-		<div>Cart</div>
+		<Heading>Корзина</Heading>
 	);
 }
 

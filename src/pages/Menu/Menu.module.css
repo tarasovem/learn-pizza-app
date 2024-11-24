@@ -1,0 +1,11 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+}
+
+.list {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 34px 45px;
+	margin-top: 30px;
+}

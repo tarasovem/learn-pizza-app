@@ -1,5 +1,7 @@
 .layout {
 	display: flex;
+	width: 1054px;
+	margin-inline: auto;
 }
 
 .sidebar {
@@ -74,4 +76,9 @@
 	align-items: center;
 	width: fit-content;
 	column-gap: 9px;
+}
+
+.content {
+	padding: 40px 60px;
+	flex: auto;
 }
