@@ -22,6 +22,7 @@
 	width: 90px;
 	aspect-ratio: 1;
 	border-radius: 50%;
+	box-shadow: 0 8px 40px 0 rgba(255, 197, 41, 0.25);
 }
 
 .name {
@@ -51,6 +52,14 @@
 	text-decoration: none;
 	color: inherit;
 	font-size: 16px;
+}
+
+.link:hover {
+	color: var(--primary-color);
+}
+
+.active {
+	color: var(--primary-color);
 }
 
 .linkIcon {
