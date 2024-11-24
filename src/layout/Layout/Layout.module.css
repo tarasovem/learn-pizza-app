@@ -1,0 +1,68 @@
+.layout {
+	display: flex;
+}
+
+.sidebar {
+	padding: 30px;
+	min-height: 100vh;
+	border-right: 1px solid var(--separator-color);
+	display: flex;
+	flex-direction: column;
+	box-sizing: border-box;
+	width: 240px;
+	flex: none;
+}
+
+.user {
+	display: flex;
+	flex-direction: column;
+}
+
+.avatar {
+	width: 90px;
+	aspect-ratio: 1;
+	border-radius: 50%;
+}
+
+.name {
+	margin-top: 20px;
+	font-weight: 700;
+	font-size: 20px;
+	color: var(--text-color);
+}
+
+.email {
+	font-size: 14px;
+	color: #9ea1b1;
+	text-decoration: none;
+}
+
+.menu {
+	margin-top: 46px;
+	display: flex;
+	flex-direction: column;
+	row-gap: 34px;
+}
+
+.link {
+	display: flex;
+	align-items: center;
+	column-gap: 14px;
+	text-decoration: none;
+	color: inherit;
+	font-size: 16px;
+}
+
+.linkIcon {
+	width: 23px;
+	height: 23px;
+}
+
+.exit {
+	margin-top: auto;
+	margin-bottom: 20px;
+	display: flex;
+	align-items: center;
+	width: fit-content;
+	column-gap: 9px;
+}
