@@ -5,8 +5,9 @@ function App() {
 	return (
 		<>
 			<Button onClick={() => console.log('click')}>Кнопка</Button>
-			<Button appearance="big">Кнопка</Button>
-			<Input />
+			<Button appearance='big'>Кнопка</Button>
+			<Input placeholder='Email' />
+			
 		</>
 	);
 }
