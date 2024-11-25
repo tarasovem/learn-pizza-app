@@ -100,3 +100,7 @@
 	text-overflow: ellipsis;
 	margin-top: 10px;
 }
+
+.description::first-letter {
+	text-transform: capitalize;
+}
