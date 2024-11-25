@@ -34,6 +34,7 @@
 	padding: 2px 12px 2px 16px;
 	border-radius: 34px;
 	box-shadow: 0 7px 28px 0 rgba(254, 114, 76, 0.2);
+	color: var(--text-color);
 }
 
 .currency {
