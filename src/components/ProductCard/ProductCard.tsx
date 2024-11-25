@@ -7,7 +7,7 @@ function ProductCard(props: ProductCardProps) {
 		<Link className={styles.link} to={`/product/${props.id}`}>
 			<div className={styles.card}>
 				<div className={styles.head}>
-					<img className={styles.image} src={props.image} alt={props.title} />
+					<img className={styles.image} src={props.image} alt={props.name} />
 					<div className={styles.price}>
 						{props.price}
 						<span className={styles.currency}>&#8381;</span>
@@ -18,7 +18,7 @@ function ProductCard(props: ProductCardProps) {
 					</div>
 				</div>
 				<div className={styles.body}>
-					<div className={styles.title}>{props.title}</div>
+					<div className={styles.title}>{props.name}</div>
 					<div className={styles.description}>{props.description}</div>
 				</div>
 			</div>
