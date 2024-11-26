@@ -1,27 +1,21 @@
-import { useState, useEffect } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, Await } from 'react-router-dom';
 import type { Product } from '../../interfaces/product.interface';
+import { Suspense } from 'react';
 
 function Product() {
-	const [isLoading, setIsLoading] = useState(true);
-	const data = useLoaderData() as Product;
+	const data = useLoaderData() as { data: Product };
 
-	useEffect(() => {
-		// Имитируем задержку
-		const timer = setTimeout(() => {
-			setIsLoading(false);
-		}, 2000);
-
-		return () => clearTimeout(timer);
-	}, []);
-
-	if (isLoading) {
-		return <div>Загрузка...</div>;
-	}
-
-	return (
-		<div>Product - {data.name}</div>
-	);
+	return <>
+		<Suspense fallback={'Загружаю...'}>
+			<Await
+				resolve={data.data}
+			>
+				{({ data }: { data: Product }) => (
+					<>Product - {data.name}</>
+				)}
+			</Await>
+		</Suspense>
+	</>;
 }
 
 export default Product;
