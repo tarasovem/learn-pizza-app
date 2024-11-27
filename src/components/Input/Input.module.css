@@ -6,3 +6,11 @@
 	padding: 20px;
 	font-family: inherit;
 }
+
+.input::placeholder {
+	color: #c4c4c4;
+}
+
+.input:focus {
+	outline-color: var(--separator-color);
+}

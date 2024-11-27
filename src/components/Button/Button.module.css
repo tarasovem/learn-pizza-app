@@ -10,6 +10,7 @@
 
 .buttonAccent {
 	background-color: var(--primary-color);
+	box-shadow: 0 10px 40px 0 rgba(122, 129, 190, 0.16);
 }
 
 .buttonAccent:hover {

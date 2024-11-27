@@ -1,0 +1,20 @@
+.layout {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	width: 1054px;
+	margin-inline: auto;
+	min-height: 100vh;
+}
+
+.logo {
+	border-right: 1px solid var(--separator-color);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.content {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

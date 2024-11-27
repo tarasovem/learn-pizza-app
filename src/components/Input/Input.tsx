@@ -8,7 +8,6 @@ const Input = forwardRef<HTMLInputElement, InputProps>(({ isValid = true, classN
 		<input
 			{...props}
 			ref={ref}
-			placeholder="Email"
 			className={cn(styles.input, className, {
 				[styles.invalid]: isValid
 			})}

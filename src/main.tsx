@@ -3,18 +3,22 @@ import { createRoot } from 'react-dom/client';
 import './index.css';
 import { createBrowserRouter, defer, RouterProvider } from 'react-router-dom';
 import Cart from './pages/Cart/Cart.tsx';
-import Layout from './layout/Layout/Layout.tsx';
+import Layout from './layout/Menu/Layout.tsx';
 import Product from './pages/Product/Product.tsx';
 import axios from 'axios';
 import { PREFIX } from './helpers/API.ts';
 import ErrorPage from './pages/Error/Error.tsx';
+import AuthLayout from './layout/Auth/Auth.layout.tsx';
+import Login from './pages/Login/Login.tsx';
+import Registration from './pages/Registration/Registration.tsx';
+import RequireAuth from './helpers/RequireAuth.tsx';
 
 const Menu = lazy(() => import('./pages/Menu/Menu.tsx'));
 
 const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <Layout />,
+		element: <RequireAuth><Layout /></RequireAuth>,
 		children: [
 			{
 				path: '/',
@@ -37,6 +41,20 @@ const router = createBrowserRouter([
 						})
 					});
 				}
+			}
+		]
+	},
+	{
+		path: '/auth',
+		element: <AuthLayout />,
+		children: [
+			{
+				path: 'login',
+				element: <Login />
+			},
+			{
+				path: 'registration',
+				element: <Registration />
 			}
 		]
 	},

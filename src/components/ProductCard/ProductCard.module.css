@@ -95,7 +95,7 @@
 
 .description {
 	font-size: 14px;
-	color: #5b5b5e;
+	color: var(--text-secondary-color);
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	margin-top: 10px;

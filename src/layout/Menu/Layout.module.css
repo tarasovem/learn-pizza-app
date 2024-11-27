@@ -2,11 +2,11 @@
 	display: flex;
 	width: 1054px;
 	margin-inline: auto;
+	min-height: 100vh;
 }
 
 .sidebar {
 	padding: 30px;
-	min-height: 100vh;
 	border-right: 1px solid var(--separator-color);
 	display: flex;
 	flex-direction: column;
