@@ -1,3 +1,3 @@
 export interface LoginResponse {
-	assecc_token: string
+	access_token: string
 }
