@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { loadState } from './storage';
 import axios, { AxiosError } from 'axios';
-import { LoginResponse } from '../interfaces/auth.interface';
+import { LoginResponse, RegistrationResponse } from '../interfaces/auth.interface';
 import { PREFIX } from '../helpers/API';
 import { Profile } from '../interfaces/user.interface';
 import { RootState } from './store';
@@ -15,6 +15,7 @@ export interface UserPersistentState {
 export interface UserState {
 	jwt: string | null;
 	loginErrorMessage?: string;
+	registrationErrorMessage?: string;
 	profile?: Profile
 }
 
@@ -28,6 +29,23 @@ export const login = createAsyncThunk('user/login',
 			const {data} = await axios.post<LoginResponse>(`${PREFIX}/auth/login`, {
 				email: params.email,
 				password: params.password
+			});
+			return data;
+		} catch (error) {
+			if (error instanceof AxiosError) {
+				throw new Error(error.response?.data.message);
+			}
+		}
+	}
+);
+
+export const registration = createAsyncThunk('user/registration',
+	async(params: {email: string, password: string, name: string}) => {
+		try {
+			const {data} = await axios.post<RegistrationResponse>(`${PREFIX}/auth/register`, {
+				email: params.email,
+				password: params.password,
+				name: params.name
 			});
 			return data;
 		} catch (error) {
@@ -59,6 +77,9 @@ export const userSlice = createSlice({
 		},
 		clearLoginError: (state) => {
 			state.loginErrorMessage = undefined;
+		},
+		clearRegistrationError: (state) => {
+			state.registrationErrorMessage = undefined;
 		}
 	},
 	extraReducers: (builder) => {
@@ -75,6 +96,17 @@ export const userSlice = createSlice({
 
 		builder.addCase(getProfile.fulfilled, (state, action) => {
 			state.profile = action.payload;
+		});
+
+		builder.addCase(registration.fulfilled, (state, action) => {
+			if (!action.payload) {
+				return;
+			}
+			state.jwt = action.payload.access_token;
+		});
+
+		builder.addCase(registration.rejected, (state, action) => {
+			state.registrationErrorMessage = action.error.message;
 		});
 	}
 });

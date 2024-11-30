@@ -56,7 +56,7 @@ function Login() {
 				<Button className={styles.submit} appearance='big'>Вход</Button>
 			</form>
 			<div className={styles.noAccount}>Нет аккаунта?</div>
-			<Link className={styles.registration} to='/auth/registraion'>Зарегистрироваться</Link>
+			<Link className={styles.registration} to='/auth/registration'>Зарегистрироваться</Link>
 		</div>
 	);
 }
