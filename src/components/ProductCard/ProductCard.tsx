@@ -11,7 +11,7 @@ function ProductCard(props: ProductCardProps) {
 
 	const addToCart = (evt: MouseEvent) => {
 		evt.preventDefault();
-		dispatch(cartActions.add(props.id));
+		dispatch(cartActions.increase(props.id));
 	};
 
 	return (

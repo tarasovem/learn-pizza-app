@@ -17,18 +17,27 @@ export const cartSlice = createSlice({
 	name: 'cart',
 	initialState,
 	reducers: {
-		add: (state, action: PayloadAction<number>) => {
-			const existed = state.items.find(item => item.id === action.payload);
+		increase: (state, action: PayloadAction<number>) => {
+			const existed = state.items.find(i => i.id === action.payload);
 			if (!existed) {
-				state.items.push({id: action.payload, count: 1});
+				state.items.push({ id: action.payload, count: 1 });
+			} else {
+				existed.count += 1;
+			}
+		},
+		decrease: (state, action: PayloadAction<number>) => {
+			const existed = state.items.find(i => i.id === action.payload);
+			if (!existed) {
 				return;
 			}
-
-			state.items.map(item => {
-				if (item.id === action.payload) {
-					item.count++;
-				}
-			});
+			if (existed.count === 1) {
+				state.items = state.items.filter(i => i.id !== action.payload);
+			} else {
+				existed.count -= 1;
+			}
+		},
+		remove: (state, action: PayloadAction<number>) => {
+			state.items = state.items.filter(i => i.id !== action.payload);
 		}
 	}
 });
