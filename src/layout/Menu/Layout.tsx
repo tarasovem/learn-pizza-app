@@ -41,7 +41,8 @@ function Layout() {
 						[styles.active]: isActive
 					})}>
 						<img className={styles.linkIcon} src="/cart-icon.svg" alt="Иконка корзины" />
-						Корзина ({items.reduce((acc, item) => acc + item.count, 0)})
+						Корзина 
+						<span className={styles.cartCount}>{items.reduce((acc, item) => acc + item.count, 0)}</span>
 					</NavLink>
 				</div>
 				<Button className={styles.exit} appearance='exit' onClick={logout}>
