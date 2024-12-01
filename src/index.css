@@ -1,5 +1,6 @@
 :root {
 	--font-family: 'Open Sans', sans-serif;
+	--font-family-currency: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
 	--primary-color: #fe724c;
 	--primary-hover-color: #e46644;
 	--text-color: #000;

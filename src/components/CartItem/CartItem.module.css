@@ -33,7 +33,7 @@
 }
 
 .currency {
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+	font-family: var(--font-family-currency);
 }
 
 .decrease,
