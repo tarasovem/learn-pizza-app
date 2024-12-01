@@ -1,5 +1,5 @@
 import styles from './Cart.module.css';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Heading from '../../components/Heading/Heading';
 import { RootState } from '../../store/store';
 import CartItem from '../../components/CartItem/CartItem';
@@ -8,12 +8,18 @@ import { Product } from '../../interfaces/product.interface';
 import axios from 'axios';
 import { PREFIX } from '../../helpers/API';
 import Button from '../../components/Button/Button';
+import { useNavigate } from 'react-router-dom';
+import { cartActions } from '../../store/cart.slice';
 
 const DELIVERY_FEE = 169;
 
 function Cart() {
 	const [cartProducts, setCartProducts] = useState<Product[]>();
 	const items = useSelector((s: RootState) => s.cart.items);
+	const jwt = useSelector((s: RootState) => s.user.jwt);
+	const navigate = useNavigate();
+	const dispatch = useDispatch();
+	
 	const total = items.reduce((acc, i) => {
 		const product = cartProducts?.find(p => p.id === i.id);
 		if (!product) {
@@ -22,15 +28,27 @@ function Cart() {
 		return acc + product.price * i.count;
 	}, 0);
 
+	useEffect(() => {
+		Promise.all(items.map(i => getItem(i.id)))
+			.then(res => setCartProducts(res));
+	}, [items]);
+	
 	const getItem = async (id: number) => {
 		const {data} = await axios.get<Product>(`${PREFIX}/products/${id}`);
 		return data;
 	};
 
-	useEffect(() => {
-		Promise.all(items.map(i => getItem(i.id)))
-			.then(res => setCartProducts(res));
-	}, [items]);
+	const checkout = async () => {
+		await axios.post(`${PREFIX}/order`, {
+			jwt
+		}, {
+			headers: {
+				Authorization: `Bearer ${jwt}`
+			}
+		});
+		dispatch(cartActions.clean());
+		navigate('/success');
+	};
 
 	const renderEmptyCart = () => {
 		return <div className={styles.empty}>Ваша корзина пуста</div>;
@@ -78,7 +96,7 @@ function Cart() {
 						</div>
 					</div>
 				</div>
-				<Button className={styles.orderButton} appearance='big'>Оформить</Button>
+				<Button className={styles.orderButton} appearance='big' onClick={checkout}>Оформить</Button>
 			</>
 		);
 	};

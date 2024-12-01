@@ -14,6 +14,7 @@ import Registration from './pages/Registration/Registration.tsx';
 import RequireAuth from './helpers/RequireAuth.tsx';
 import { store } from './store/store.ts';
 import { Provider } from 'react-redux';
+import { Success } from './pages/Success/Success.tsx';
 
 const Menu = lazy(() => import('./pages/Menu/Menu.tsx'));
 
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
 			{
 				path: '/',
 				element: <Suspense fallback={<>Загрузка...</>}><Menu /></Suspense>
+			},
+			{
+				path: '/success',
+				element: <Success />
 			},
 			{
 				path: '/cart',
