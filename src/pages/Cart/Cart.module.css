@@ -1,6 +1,105 @@
-.content {
+.list {
 	display: flex;
 	flex-direction: column;
 	gap: 30px;
 	margin-top: 40px;
+}
+
+.promocode {
+	display: flex;
+	column-gap: 20px;
+	border: 1px solid #eee;
+	padding: 8px 11px 8px 17px;
+	border-radius: 60px;
+	margin-top: 35px;
+}
+
+.promocodeInput {
+	border: none;
+	font-size: 14px;
+	font-weight: 300;
+	color: var(--text-color);
+	font-family: inherit;
+	flex: auto;
+}
+
+.promocodeInput::placeholder {
+	color: #bebebe;
+}
+
+.promocodeInput:focus {
+	outline: none;
+}
+
+.promocode:has(.promocodeInput:focus) {
+	border-color: var(--separator-color);
+}
+
+.promocodeButton {
+	border: none;
+	font-size: 16px;
+	color: var(--white-color);
+	background-color: var(--primary-color);
+	padding: 10px 26px 11px;
+	border-radius: 60px;
+	font-family: inherit;
+	transition: background-color 0.25s;
+}
+
+.promocodeButton:hover {
+	cursor: pointer;
+	background-color: var(--primary-hover-color);
+}
+
+.total {
+	margin-top: 16px;
+}
+
+.totalRow {
+	display: flex;
+	justify-content: space-between;
+	column-gap: 30px;
+	padding-top: 14px;
+	padding-bottom: 10px;
+}
+
+.totalRow:not(:last-child) {
+	border-bottom: 1px solid var(--separator-color);
+}
+
+.totalTitle {
+	font-weight: 400;
+	font-size: 16px;
+}
+
+.totalPrice {
+	font-size: 19px;
+	display: flex;
+	align-items: center;
+	column-gap: 5px;
+}
+
+.totalPriceCurrency {
+	font-family: var(--font-family-currency);
+	font-size: 14px;
+	color: #9796a1;
+}
+
+.totalCount {
+	color: #bebebe;
+	font-size: 14px;
+	font-weight: 300;
+}
+
+.orderButton {
+	display: block;
+	margin-top: 74px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 248px;
+}
+
+.empty {
+	margin-top: 20px;
+	font-size: 18px;
 }
