@@ -1,20 +1,20 @@
+import axios from 'axios';
 import { lazy, StrictMode, Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
-import './index.css';
-import { createBrowserRouter, defer, RouterProvider } from 'react-router-dom';
-import Cart from './pages/Cart/Cart.tsx';
-import Layout from './layout/Menu/Layout.tsx';
-import Product from './pages/Product/Product.tsx';
-import axios from 'axios';
-import { PREFIX } from './helpers/API.ts';
-import ErrorPage from './pages/Error/Error.tsx';
-import AuthLayout from './layout/Auth/Auth.layout.tsx';
-import Login from './pages/Login/Login.tsx';
-import Registration from './pages/Registration/Registration.tsx';
-import RequireAuth from './helpers/RequireAuth.tsx';
-import { store } from './store/store.ts';
 import { Provider } from 'react-redux';
+import { createBrowserRouter, defer, RouterProvider } from 'react-router-dom';
+import { PREFIX } from './helpers/API.ts';
+import RequireAuth from './helpers/RequireAuth.tsx';
+import './index.css';
+import AuthLayout from './layout/Auth/Auth.layout.tsx';
+import Layout from './layout/Menu/Layout.tsx';
+import Cart from './pages/Cart/Cart.tsx';
+import ErrorPage from './pages/Error/Error.tsx';
+import Login from './pages/Login/Login.tsx';
+import Product from './pages/Product/Product.tsx';
+import Registration from './pages/Registration/Registration.tsx';
 import { Success } from './pages/Success/Success.tsx';
+import { store } from './store/store.ts';
 
 const Menu = lazy(() => import('./pages/Menu/Menu.tsx'));
 

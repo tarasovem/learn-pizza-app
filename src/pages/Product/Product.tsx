@@ -1,6 +1,6 @@
-import { useLoaderData, Await } from 'react-router-dom';
-import type { Product } from '../../interfaces/product.interface';
 import { Suspense } from 'react';
+import { Await, useLoaderData } from 'react-router-dom';
+import type { Product } from '../../interfaces/product.interface';
 
 function Product() {
 	const data = useLoaderData() as { data: Product };

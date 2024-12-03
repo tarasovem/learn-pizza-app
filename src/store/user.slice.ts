@@ -1,9 +1,9 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { loadState } from './storage';
 import axios, { AxiosError } from 'axios';
-import { LoginResponse, RegistrationResponse } from '../interfaces/auth.interface';
 import { PREFIX } from '../helpers/API';
+import { LoginResponse, RegistrationResponse } from '../interfaces/auth.interface';
 import { Profile } from '../interfaces/user.interface';
+import { loadState } from './storage';
 import { RootState } from './store';
 
 export const JWT_PERSISTENT_STATE = 'userData';

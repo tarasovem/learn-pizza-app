@@ -1,12 +1,12 @@
+import { FormEvent, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import Button from '../../components/Button/Button';
 import Heading from '../../components/Heading/Heading';
 import Input from '../../components/Input/Input';
-import styles from './Registration.module.css';
-import { FormEvent, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../store/store';
 import { registration, userActions } from '../../store/user.slice';
+import styles from './Registration.module.css';
 
 export type RegistrationForm = {
 	email: {
