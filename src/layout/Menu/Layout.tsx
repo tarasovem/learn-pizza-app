@@ -1,11 +1,11 @@
-import { NavLink, Outlet, useNavigate } from 'react-router-dom';
-import styles from './Layout.module.css';
-import Button from '../../components/Button/Button';
 import cn from 'classnames';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { NavLink, Outlet, useNavigate } from 'react-router-dom';
+import Button from '../../components/Button/Button';
 import { AppDispatch, RootState } from '../../store/store';
 import { getProfile, userActions } from '../../store/user.slice';
-import { useEffect } from 'react';
+import styles from './Layout.module.css';
 
 function Layout() {
 	const navigate = useNavigate();
