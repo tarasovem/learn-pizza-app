@@ -1,23 +1,31 @@
 import { Suspense } from 'react';
+import { useDispatch } from 'react-redux';
 import { Await, Link, useLoaderData } from 'react-router-dom';
 import Heading from '../../components/Heading/Heading';
 import type { Product } from '../../interfaces/product.interface';
+import { cartActions } from '../../store/cart.slice';
+import { AppDispatch } from '../../store/store';
 import styles from './Product.module.css';
 
 function Product() {
 	const data = useLoaderData() as { data: Product };
+	const dispatch = useDispatch<AppDispatch>();
 
 	return <>
 		<Suspense fallback={'Загружаю...'}>
-			<Await
-				resolve={data.data}
-			>
+			<Await resolve={data.data}>
 				{({ data }: { data: Product }) => (
 					<>
 						<div className={styles.header}>
 							<Link className={styles.back} to='/' />
 							<Heading>{data.name}</Heading>
-							<button className={styles.addToBasket} type='button'>В корзину</button>
+							<button 
+								className={styles.addToBasket} 
+								type='button' 
+								onClick={() => dispatch(cartActions.increase(data.id))}
+							>
+								В корзину
+							</button>
 						</div>
 						<div className={styles.content}>
 							<div className={styles.image}>

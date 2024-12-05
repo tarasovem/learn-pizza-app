@@ -24,6 +24,7 @@
 }
 
 .addToBasket {
+	font-family: inherit;
 	background-color: var(--primary-color);
 	color: #fff;
 	border: none;
@@ -108,4 +109,23 @@
 
 .ingredients {
 	padding-top: 14px;
+}
+
+.ingredientsLabel {
+	color: #5b5b5e;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.ingredientsList {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	padding-left: 20px;
+}
+
+.ingredientItem {
+	color: #5b5b5e;
+	font-size: 14px;
+	text-transform: capitalize;
 }
